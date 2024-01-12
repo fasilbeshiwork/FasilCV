@@ -1,0 +1,125 @@
+---
+import Container from "./Container.astro";
+---
+
+<style>
+  /* Add this CSS to create the fading-in effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-in-text {
+    animation: fadeIn 7s ease-in-out 0.5s; /* Adjust the duration, timing function, and delay as needed */
+    opacity: 50;
+  }
+
+  /* Apply slideIn animation to navigation links */
+  .nav-link {
+    animation: slideIn 6.5s ease-in-out;
+  }
+
+  /* Add a delay to each navigation link */
+  .nav-link:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .nav-link:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  .nav-link:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+
+  .nav-link:nth-child(5) {
+    animation-delay: 2s;
+  }
+</style>
+
+<header>
+  <nav class="z-10 w-full absolute">
+    <Container class="w-full py-6">
+      <div class="flex flex-wrap items-center justify-between py-2 gap-6 md:py-4 md:gap-0 relative">
+        <input aria-hidden="true" type="checkbox" name="toggle_nav" id="toggle_nav" class="hidden peer">
+        <div class="relative z-20 w-full flex justify-between lg:w-max md:px-0">
+          <a href="#home" aria-label="logo" class="flex space-x-2 items-center">
+            <div aria-hidden="true" class="flex space-x-1">
+              <div class="h-4 w-4 rounded-full bg-gray-900 dark:bg-white"></div>
+              <div class="h-6 w-2 bg-primary"></div>
+            </div>
+            <!-- Apply the fade-in-text class to the text -->
+            <span class="text-2xl font-bold text-gray-900 dark:text-white fade-in-text" style="font-size:40px;">FASIL BESHIWORK</span>
+          </a>
+          <div class="relative flex items-center lg:hidden max-h-10">
+            <label role="button" for="toggle_nav" aria-label="humburger" id="hamburger" class="relative p-6 -mr-6">
+              <div aria-hidden="true" id="line" class="m-auto h-0.5 w-5 rounded bg-sky-900 dark:bg-gray-300 transition duration-300"></div>
+              <div aria-hidden="true" id="line2" class="m-auto mt-2 h-0.5 w-5 rounded bg-sky-900 dark:bg-gray-300 transition duration-300"></div>
+            </label>
+          </div>
+        </div>
+        <div class="flex-col z-20 flex-wrap gap-6 p-8 rounded-3xl border border-gray-100 bg-white shadow-2xl shadow-gray-600/10 justify-end w-full invisible opacity-0 translate-y-1 absolute top-full left-0 transition-all duration-300 scale-95 origin-top 
+                            lg:relative lg:scale-100 lg:peer-checked:translate-y-0 lg:translate-y-0 lg:flex lg:flex-row lg:items-center lg:gap-0 lg:p-0 lg:bg-transparent lg:w-7/12 lg:visible lg:opacity-100 lg:border-none
+                            peer-checked:scale-100 peer-checked:opacity-100 peer-checked:visible lg:shadow-none 
+                            dark:shadow-none dark:bg-gray-800 dark:border-gray-700">
+          <div class="text-gray-600 dark:text-gray-300 lg:pr-20 lg:w-auto w-full lg:pt-0">
+            <ul class="tracking-wide font-medium lg:text-sm flex-col flex lg:flex-row gap-6 lg:gap-0">
+              <li>
+                <a href="#solution" class="block md:px-4 transition hover:text-primary hover:bg-purple-100 py-2 px-4 rounded-full nav-link">
+                  <span style="font-size: 28px;">AboutMe</span>
+                </a>
+                
+              </li>
+              <li>
+                <a href="#features" class="block md:px-4 transition hover:text-primary hover:bg-purple-100 py-2 px-4 rounded-full nav-link">
+                  <span  style="font-size: 28px;">Works</span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="#blog" class="block md:px-4 transition hover:text-primary hover:bg-purple-100 py-2 px-4 rounded-full nav-link">
+                  <span style="font-size: 28px;">Contact me</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </nav>
+</header>
+
+<style>
+  #toggle_nav:checked ~ div #hamburger #line {
+    @apply rotate-45 translate-y-1.5;
+  }
+
+  #toggle_nav:checked ~ div #hamburger #line2 {
+    @apply -rotate-45 -translate-y-1;
+  }
+
+  .nav-link {
+    font-size: 28px;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .nav-link:hover {
+    color: #fff; /* Change to your desired hover text color */
+    background-color: #805ad5; /* Change to your desired hover background color */
+  }
+</style>

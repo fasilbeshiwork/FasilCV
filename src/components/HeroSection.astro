@@ -1,0 +1,130 @@
+---
+import Container from "./Container.astro"
+
+---
+
+<div class="relative" id="home">
+    <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+        <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+    </div>
+    <Container>
+        <div class="relative pt-36 ml-auto">
+            <div class="lg:w-2/3 text-center mx-auto">
+                <h1 id="typewriter" class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl"></h1>
+                <p class="mt-8 text-gray-700 dark:text-gray-300"></p>
+                <div class="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
+                  <a href="#" class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max flash-hire-me">
+                    <span class="relative text-base font-semibold text-white">Hire Me</span>
+                </a>
+                
+                    <a
+                      href="#"
+                      class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+                    >
+                      <span
+                        class="relative text-base font-semibold text-primary dark:text-white"
+                        >See works</span
+                      >
+                    </a>
+                </div>
+                <div class="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
+                    <div class="text-left">
+                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white"> Fair Price </h6>
+                        <p class="mt-2 text-gray-500">Tailored to meet your budget  </p>
+                    </div>
+                    <div class="text-left">
+                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white"> Delivery time </h6>
+                        <p class="mt-2 text-gray-500"> Always meeting Deadlines</p>
+                    </div>
+                    <div class="text-left">
+                        <h6 class="text-lg font-semibold text-gray-700 dark:text-white"> Exceptional Quality</h6>
+                        <p class="mt-2 text-gray-500"> outcome with the highest standards</p>
+                    </div>
+                </div>
+            </div>
+      
+      
+            <div>
+
+            <div class="text-center py-3 mt-3">
+            <h2 class=" text-2xl font-bold text-gray-700 dark:text-white md:text-4xl">
+              My Clients 
+             </h2>
+             </div>
+
+             <div class="flex mt-2">
+                <!-- Client 1 -->
+                <div class="flex items-center p-4 grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/CNET.png" class="object-contain h-20 w-full mx-auto" loading="lazy" alt="client logo" />
+                </div>
+            
+                <!-- Client 2 -->
+                <div class="flex items-center p-4 grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/NPM.png" class="object-contain h-20 w-full mx-auto" loading="lazy" alt="client logo" />
+                </div>
+            
+                <!-- Client 3 -->
+                <div class="flex items-center p-4 grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/MMCY.png" class="object-contain h-20 w-full mx-auto" loading="lazy" alt="client logo" />
+                </div>
+            
+                <!-- Client 4 -->
+                <div class="flex items-center p-4 grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/YZ.PNG" class="object-contain h-20 w-full mx-auto" loading="lazy" alt="client logo" />
+                </div>
+            
+                <!-- Client 5 -->
+                <div class="flex items-center p-4 grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/icog.png" class="object-contain h-20 w-full mx-auto" loading="lazy" alt="client logo" />
+                </div>
+            
+                <!-- Client 6 -->
+                <div class="flex items-center p-4 grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/Apex.png" class="object-contain h-20 w-full mx-auto" loading="lazy" alt="client logo" />
+                </div>
+            </div>
+            
+
+          </div>
+          
+        </div>
+    </Container>
+</div>
+
+<script>
+  const text = "WEB & APP DEV.";
+  let index = 0;
+  const speed = 200; // Adjust the speed (in milliseconds) to control typing speed
+  const delayBeforeFlash = 6000; // 9 seconds delay before flashing
+  const flashCount = 3; // Number of times to flash
+
+  function typeWriter() {
+      if (index < text.length) {
+          document.getElementById("typewriter").innerHTML += text.charAt(index);
+          index++;
+
+          if (index === text.length) {
+              setTimeout(() => flashButton(), delayBeforeFlash);
+          } else {
+              setTimeout(typeWriter, speed);
+          }
+      }
+  }
+
+  function flashButton(count = 0) {
+      const hireMeButton = document.querySelector('.flash-hire-me');
+
+      if (count < flashCount * 2) {
+          hireMeButton.style.visibility = (count % 2 === 0) ? 'hidden' : 'visible';
+          setTimeout(() => flashButton(count + 1), 200); // Toggle every 500 milliseconds
+      } else {
+          // Continue typing after flashing
+          setTimeout(typeWriter, speed);
+      }
+  }
+
+  // Call the typewriter function on page load
+  typeWriter();
+</script>
+

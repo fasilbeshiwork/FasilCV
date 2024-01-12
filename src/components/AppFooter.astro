@@ -1,0 +1,58 @@
+---
+import Container from "./Container.astro";
+---
+
+<footer class="py-20 text-center">
+  <Container class="bg-gray-800 p-6 rounded-md">
+    <div class="flex items-center justify-center space-x-6">
+      <span class="text-gray-500 dark:text-gray-400">Contact Me:</span>
+
+      <div class="flex items-center space-x-4">
+        <a href="#" id="emailLink" class="transition-transform transform inline-block text-gray-500 dark:text-gray-400 hover:scale-110 focus:scale-110 focus:outline-none">
+          <span>Email:</span>
+          <span class="font-semibold text-gray-600 dark:text-white">faislbeshiwork17@gmail.com</span>
+        </a>
+
+        <a href="#" id="phoneLink" class="transition-transform transform inline-block text-gray-500 dark:text-gray-400 hover:scale-110 focus:scale-110 focus:outline-none">
+          <span>Phone:</span>
+          <span class="font-semibold text-gray-600 dark:text-white">0924308086</span>
+        </a>
+      </div>
+    </div>
+
+    
+  </Container>
+
+  <script>
+    const emailLink = document.getElementById('emailLink');
+    const phoneLink = document.getElementById('phoneLink');
+
+    const addHoverEffect = (element) => {
+      element.addEventListener('mouseover', () => {
+        element.classList.add('hovered-link');
+      });
+
+      element.addEventListener('mouseout', () => {
+        element.classList.remove('hovered-link');
+      });
+    };
+
+    addHoverEffect(emailLink);
+    addHoverEffect(phoneLink);
+
+    const addClickEffect = (element, action) => {
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        action();
+      });
+    };
+
+    addClickEffect(emailLink, () => {
+      window.location.href = 'mailto:faislbeshiwor17@gmail.com';
+    });
+
+    addClickEffect(phoneLink, () => {
+      window.location.href = 'tel:+0924308086';
+    });
+  </script>
+</footer>
